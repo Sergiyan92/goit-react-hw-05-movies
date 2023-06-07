@@ -20,8 +20,8 @@ const CardItem = ({ card }) => {
       <div>
         <h4>Genres</h4>
         <ul>
-          {card.genres?.map((genre, ind) => (
-            <span key={ind}>{genre.name}</span>
+          {card.genres?.map((genre, index) => (
+            <span key={index}>{genre.name}</span>
           ))}
         </ul>
       </div>

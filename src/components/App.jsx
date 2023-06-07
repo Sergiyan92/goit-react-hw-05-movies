@@ -1,11 +1,11 @@
 import { Suspense, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Heder from './heder/Heder';
-const Home = lazy(() => import('../pages/Home'));
-const Movies = lazy(() => import('../pages/Movies'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-const Cast = lazy(() => import('../pages/Cast'));
-const Reviews = lazy(() => import('../pages/Reviews'));
+const Home = lazy(() => import('../pages/home/Home'));
+const Movies = lazy(() => import('../pages/movies/Movies'));
+const MovieDetails = lazy(() => import('../pages/moviedetails/MovieDetails'));
+const Cast = lazy(() => import('../pages/cast/Cast'));
+const Reviews = lazy(() => import('../pages/reviews/Reviews'));
 
 export const App = () => {
   return (

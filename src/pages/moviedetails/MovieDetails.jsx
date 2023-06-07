@@ -5,13 +5,15 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import { getMovieId } from 'service/service';
 
 const MoviesDetails = () => {
-  const { movieID } = useParams;
-  const [details, setDetails] = useState([]);
+  const { movieId } = useParams();
+  const [details, setDetails] = useState(null);
+
   useEffect(() => {
-    getMovieId(movieID)
-      .then(response => setDetails(response.data.results))
+    getMovieId(movieId)
+      .then(data => setDetails(data))
       .catch(error => console.log(error));
-  }, [movieID]);
+  }, [movieId]);
+  if (!details) return;
   return (
     <div>
       <Link to="/">Back</Link>

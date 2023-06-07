@@ -1,4 +1,3 @@
-//developer.themoviedb.org/docs/image-basics
 import axios from 'axios';
 const options = {
   method: 'GET',
@@ -12,17 +11,16 @@ export const getMovies = async query => {
   const url = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
   const response = await axios(url, options);
   const movies = response.data.results;
-  // console.log(movies);
   return {
     movieData: movies.map(({ id, title }) => ({ id, title })),
   };
 };
 
 export const getAllmovies = async () => {
-  const url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
+  const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
   const response = await axios(url, options);
   const trending = response.data.results;
-  // console.log(trending);
+
   return {
     trendingData: trending.map(({ id, title }) => ({ id, title })),
   };
@@ -30,22 +28,21 @@ export const getAllmovies = async () => {
 
 export const getMovieId = async id => {
   const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-  const response = await axios(url, options);
-  const movieId = response.data.results;
-  console.log(movieId);
-  return movieId;
+  const { data } = await axios(url, options);
+
+  return data;
 };
 
-export const getCredits = async id => {
+export const getCast = async id => {
   const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
-  const response = await axios(url, options);
-  const credits = response.data.results;
-  return credits;
+  const { data } = await axios(url, options);
+
+  return data;
 };
 
 export const getMovieIdReviews = async id => {
   const url = `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`;
-  const response = await axios(url, options);
-  const reviews = response.data.results;
-  return reviews;
+  const { data } = await axios(url, options);
+
+  return data;
 };
