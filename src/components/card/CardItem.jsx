@@ -1,9 +1,10 @@
 import defaultImg from '../../data/default.png';
-
+import css from './Carditem.module.css';
 const CardItem = ({ card }) => {
   return (
-    <div>
+    <div className={css.carditem}>
       <img
+        className={css.img}
         src={
           card.backdrop_path
             ? `https://image.tmdb.org/t/p/original/${card.backdrop_path}`
