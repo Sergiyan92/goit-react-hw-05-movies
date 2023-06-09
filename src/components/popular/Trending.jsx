@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllmovies } from 'service/service';
-
-const Trending = ({ place = '' }) => {
+import css from './Trending.module.css';
+const Trending = () => {
   const [error, setMoviesError] = useState(null);
   const [trending, setTrending] = useState([]);
+
   useEffect(() => {
     try {
       const fetchMovies = async () => {
@@ -17,12 +18,10 @@ const Trending = ({ place = '' }) => {
     }
   }, []);
   return (
-    <ul>
+    <ul className={css.list}>
       {trending.map(movie => (
-        <li key={movie.id}>
-          <Link to={place ? `movies/${movie.id}` : `${movie.id}`}>
-            {movie.title}
-          </Link>
+        <li className={css.item} key={movie.id}>
+          <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
         </li>
       ))}
       {error && <>Sorry. {error} ... 😭</>}

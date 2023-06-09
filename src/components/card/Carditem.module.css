@@ -2,5 +2,11 @@
   display: flex;
 }
 .img {
-  max-width: 350px;
+  max-width: 700px;
+}
+.info {
+  margin-left: 30px;
+}
+.list {
+  padding: 0;
 }

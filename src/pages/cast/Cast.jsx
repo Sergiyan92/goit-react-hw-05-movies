@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import CastItem from '../../components/cast/CastItem';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'service/service';
-
+import css from './Cast.module.css';
 const Cast = () => {
   const { movieId } = useParams();
   const [data, setData] = useState();
@@ -13,7 +13,7 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={css.list}>
       {data?.cast.map(cast => (
         <li key={cast.id}>
           <CastItem cast={cast} />

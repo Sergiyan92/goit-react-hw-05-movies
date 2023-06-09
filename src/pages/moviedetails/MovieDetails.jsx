@@ -1,12 +1,17 @@
 import CardItem from 'components/card/CardItem';
 import { IfoItem } from 'components/info/IfoItem';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieId } from 'service/service';
+import css from './MovieDetails.module.css';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
+
+  const location = useLocation();
+  const back = useRef(location.state ?? '/');
 
   useEffect(() => {
     getMovieId(movieId)
@@ -16,7 +21,9 @@ const MoviesDetails = () => {
   if (!details) return;
   return (
     <div>
-      <Link to="/">Back</Link>
+      <Link className={css.button} to={back.current}>
+        Back
+      </Link>
       <CardItem card={details} />
       <IfoItem />
 

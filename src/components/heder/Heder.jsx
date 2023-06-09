@@ -1,19 +1,25 @@
 import { NavLink, Outlet } from 'react-router-dom';
-
+import css from './Heder.module.css';
 const Heder = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <NavLink className="nav-link " aria-current="page" to="/">
-              Home
-            </NavLink>
-            <NavLink className="nav-link" to="/movies">
-              Movies
-            </NavLink>
-          </div>
-        </div>
+      <nav className={css.nav}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : `${css.link}`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : `${css.link}`
+          }
+          to="/movies"
+        >
+          Movies
+        </NavLink>
       </nav>
       <Outlet />
     </>

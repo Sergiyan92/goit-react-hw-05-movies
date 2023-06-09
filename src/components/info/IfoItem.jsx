@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
-
+import css from './Infoitem.module.css';
 export const IfoItem = () => {
   return (
     <div>
-      <p>Additional information</p>
-      <ul>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+      <h4>Additional information</h4>
+      <ul className={css.info}>
+        <Link className={css.button} to="cast">
+          Cast
+        </Link>
+        <Link className={css.button} to="reviews">
+          Reviews
+        </Link>
       </ul>
     </div>
   );

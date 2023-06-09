@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const Review = ({ review }) => {
   return (
     <div>
@@ -10,3 +10,6 @@ const Review = ({ review }) => {
 };
 
 export default Review;
+Review.propTypes = {
+  review: PropTypes.object.isRequired,
+};

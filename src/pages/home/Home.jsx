@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <h2>Trending today</h2>
-      <Trending trending={trending} place={1} />
+      <Trending trending={trending} />
     </>
   );
 };

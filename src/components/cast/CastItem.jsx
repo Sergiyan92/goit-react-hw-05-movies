@@ -1,9 +1,10 @@
 // import PropTypes from 'prop-types';
 import defaultImg from '../../data/noicon.png';
 import css from './CastItem.module.css';
+import PropTypes from 'prop-types';
 const CastItem = ({ cast }) => {
   return (
-    <div>
+    <div className={css.item}>
       <img
         className={css.image}
         src={
@@ -19,6 +20,8 @@ const CastItem = ({ cast }) => {
   );
 };
 
-// CastItem.propTypes = {};
+CastItem.propTypes = {
+  cast: PropTypes.object.isRequired,
+};
 
 export default CastItem;
